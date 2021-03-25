@@ -1,5 +1,5 @@
 import "./App.css";
-import { VendorsSvg } from "./assets/svg";
+import { VendorsSvg } from "./icons/svg";
 
 function App() {
   return (
