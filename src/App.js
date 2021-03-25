@@ -1,10 +1,10 @@
 import "./App.css";
-import { VendorsSvg } from "./icons/svg";
+import { NavBar } from "./nav/index";
 
 function App() {
   return (
     <div>
-      <VendorsSvg />
+      <NavBar />
     </div>
   );
 }
