@@ -1,5 +1,6 @@
 import React from "react";
 import { BRAND_COLORS } from "./../constants";
+import { Subtitle2 } from "./../fonts";
 import { SvgIcon } from "../icons/svg";
 import styled from "styled-components";
 
@@ -26,12 +27,7 @@ const SelectedTabElevation = styled.div`
   width: 100%;
 `;
 
-const NavBarCaption = styled.span`
-  font-family: Gotham Rounded;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 24px;
+const NavBarCaption = styled(Subtitle2)`
   margin-left: 6px;
   color: ${(props) =>
     props.selected ? BRAND_COLORS.primary500 : BRAND_COLORS.primary200};

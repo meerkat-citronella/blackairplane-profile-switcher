@@ -8,10 +8,11 @@ export const BRAND_COLORS = {
 
 export const FONT_COLORS = {
   highEmphasis: "rgba(34, 34, 34, 0.87)", // dark grey
+  highEmphasisInverted: "#ffffff", // white
   mediumEmphasis: "rgba(34, 34, 34, 0.6)", // light grey
 };
 
 export const DETAIL_COLORS = {
   outline: "rgba(0, 0, 0, 0.12)", // light grey
-  surfaceOverlay: "rgba(34, 34, 34, 0.08", // very light grey
+  surfaceOverlay: "rgba(34, 34, 34, 0.08)", // very light grey
 };

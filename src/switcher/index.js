@@ -4,6 +4,7 @@ import "gotham-fonts/css/gotham-rounded.css";
 
 import { Tab, Owner, AddButton } from "./functions";
 import { FONT_COLORS } from "./../constants";
+import { Headline6, Caption } from "./../fonts";
 
 const Container = styled.div`
   width: 360px;
@@ -13,24 +14,16 @@ const Container = styled.div`
   margin: 24px 16px;
 `;
 
-const CompanyName = styled.h6`
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: -0.15px;
-  color: ${FONT_COLORS.highEmphasis};
+const CompanyName = styled(Headline6)`
   text-align: center;
   margin: 0;
   padding: 0;
 `;
 
-const CompanyCaption = styled.p`
+const CompanyCaption = styled(Caption)`
   margin-top: 4px;
   margin-bottom: 18px;
-  font-size: 12px;
-  line-height: 16px;
   text-align: center;
-  letter-spacing: -0.2px;
   color: ${FONT_COLORS.mediumEmphasis};
 `;
 

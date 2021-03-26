@@ -3,13 +3,16 @@ import styled from "styled-components";
 import { ownerPhotos } from "./../assets/png";
 import { SvgIcon } from "./../icons/svg";
 import { BRAND_COLORS, FONT_COLORS, DETAIL_COLORS } from "./../constants";
+import {
+  Body2MediumEmphasis,
+  Subtitle1HighEmphasis,
+  ButtonText,
+} from "./../fonts";
 
 // tab
-const TabCaption = styled.p`
-  font-size: 14px;
-  line-height: 20px;
+const TabCaption = styled(Body2MediumEmphasis)`
   text-align: center;
-  letter-spacing: 0.25px;
+  margin-bottom: 12px;
   color: ${(props) =>
     props.selected ? BRAND_COLORS.secondary300 : FONT_COLORS.mediumEmphasis};
 `;
@@ -34,25 +37,14 @@ const OwnerCard = styled.div`
   background: ${(props) => (props.selected ? BRAND_COLORS.secondary50 : null)};
 `;
 
-const OwnerName = styled.div`
-  font-size: 16px;
-  line-height: 24px;
-  color: ${FONT_COLORS.highEmphasis};
-`;
-
-const OwnerProperties = styled.div`
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.25px;
-  color: ${FONT_COLORS.mediumEmphasis};
-`;
-
 const OwnerImg = styled.img`
   margin: 15px 16px;
+  height: 40px;
 `;
 
 const OwnerOuterFlexbox = styled.div`
   display: flex;
+  height: 69px; // leave 1px for the divider
   justify-content: space-between;
   align-items: center;
   padding-right: 16px;
@@ -64,24 +56,36 @@ const OwnerInnerFlexbox = styled.div`
   align-items: center;
 `;
 
+const DividerFlexbox = styled.div`
+  // to center the divider in the card
+  display: flex;
+  justify-content: center;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  width: 91.2%;
+  background: ${DETAIL_COLORS.surfaceOverlay};
+`;
+
 // button
 const Button = styled.button`
-  width: 100%;
+  width: 328px;
   height: 36px;
   margin-top: 38px;
   background: ${BRAND_COLORS.secondary300};
   border: none;
   border-radius: 18px;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  text-align: center;
-  letter-spacing: 0.75px;
-  text-transform: uppercase;
+  color: ${FONT_COLORS.highEmphasisInverted};
 `;
 
-const ButtonFlexbox = styled.div`
+const ButtonOuterFlexbox = styled.div`
+  // to center the button
+  display: flex;
+  justify-content: center;
+`;
+
+const ButtonInnerFlexbox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,25 +111,30 @@ export const Owner = ({ ownerName, propertiesOwned, selected }) => {
             alt={`the owner, ${ownerName}`}
           />
           <div>
-            <OwnerName>{ownerName}</OwnerName>
-            <OwnerProperties>
+            <Subtitle1HighEmphasis>{ownerName}</Subtitle1HighEmphasis>
+            <Body2MediumEmphasis>
               Owner, {propertiesOwned} Properties
-            </OwnerProperties>
+            </Body2MediumEmphasis>
           </div>
         </OwnerInnerFlexbox>
         <SvgIcon iconName={"Chevron Right"} />
       </OwnerOuterFlexbox>
+      <DividerFlexbox>
+        <Divider />
+      </DividerFlexbox>
     </OwnerCard>
   );
 };
 
 export const AddButton = () => {
   return (
-    <Button>
-      <ButtonFlexbox>
-        <SvgIcon iconName={"Plus Sign"} />
-        Add
-      </ButtonFlexbox>
-    </Button>
+    <ButtonOuterFlexbox>
+      <Button>
+        <ButtonInnerFlexbox>
+          <SvgIcon iconName={"Plus Sign"} />
+          <ButtonText>Add</ButtonText>
+        </ButtonInnerFlexbox>
+      </Button>
+    </ButtonOuterFlexbox>
   );
 };

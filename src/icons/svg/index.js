@@ -150,7 +150,7 @@ const EditSvg = ({ selected }) => (
   </svg>
 );
 
-const ChevronRight = () => (
+const ChevronRightSvg = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -161,12 +161,12 @@ const ChevronRight = () => (
     <path
       d="M9.29055 6.71002C8.90055 7.10002 8.90055 7.73002 9.29055 8.12002L13.1705 12L9.29055 15.88C8.90055 16.27 8.90055 16.9 9.29055 17.29C9.68055 17.68 10.3105 17.68 10.7005 17.29L15.2905 12.7C15.6805 12.31 15.6805 11.68 15.2905 11.29L10.7005 6.70002C10.3205 6.32002 9.68055 6.32002 9.29055 6.71002Z"
       fill="#222222"
-      fill-opacity="0.87"
+      fillOpacity="0.87"
     />
   </svg>
 );
 
-const PlusSign = () => (
+const PlusSignSvg = () => (
   <svg
     width="24"
     height="24"
@@ -181,13 +181,72 @@ const PlusSign = () => (
   </svg>
 );
 
+const EmailSvg = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM19.6 8.25L12.53 12.67C12.21 12.87 11.79 12.87 11.47 12.67L4.4 8.25C4.15 8.09 4 7.82 4 7.53C4 6.86 4.73 6.46 5.3 6.81L12 11L18.7 6.81C19.27 6.46 20 6.86 20 7.53C20 7.82 19.85 8.09 19.6 8.25Z"
+      fill="#00BFB2"
+    />
+  </svg>
+);
+
+const TelephoneSvg = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19.23 15.26L16.69 14.97C16.08 14.9 15.48 15.11 15.05 15.54L13.21 17.38C10.38 15.94 8.05998 13.63 6.61998 10.79L8.46998 8.94C8.89998 8.51 9.10998 7.91 9.03998 7.3L8.74998 4.78C8.62998 3.77 7.77998 3.01 6.75998 3.01H5.02998C3.89998 3.01 2.95998 3.95 3.02998 5.08C3.55998 13.62 10.39 20.44 18.92 20.97C20.05 21.04 20.99 20.1 20.99 18.97V17.24C21 16.23 20.24 15.38 19.23 15.26Z"
+      fill="#00BFB2"
+    />
+  </svg>
+);
+
+const LocationSvg = () => (
+  // note that this icon has no inbuilt padding!! the figma icon didn't give an option for it, like it did the others. so I add my own here, to make the component 24px by 24px.
+  <span style={{ padding: "0.5px 5px" }}>
+    <svg
+      width="14"
+      height="20"
+      viewBox="0 0 14 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M7 0C3.13 0 0 3.13 0 7C0 12.25 7 20 7 20C7 20 14 12.25 14 7C14 3.13 10.87 0 7 0ZM7 9.5C5.62 9.5 4.5 8.38 4.5 7C4.5 5.62 5.62 4.5 7 4.5C8.38 4.5 9.5 5.62 9.5 7C9.5 8.38 8.38 9.5 7 9.5Z"
+        fill="#00BFB2"
+      />
+    </svg>
+  </span>
+);
+
+/**
+ * gets the appropriate icon color, based on whether the icon is selected
+ * @param {boolean | number} selected - specifies the color. a simple boolean (i.e. just passing 'selected' as a prop w no value) will return primary500, while specifiing selected={400} will return primary400. otherwise, will return pastel (primary200)
+ * @returns {string} the specified color
+ */
 const getSvgFillColor = (selected) =>
-  selected ? BRAND_COLORS.primary500 : BRAND_COLORS.primary200;
+  selected
+    ? selected === 400
+      ? BRAND_COLORS.primary400
+      : BRAND_COLORS.primary500
+    : BRAND_COLORS.primary200;
 
 /**
  * renders the appropriate svg icon for the passed caption. changes the color based on whether the icon is selected or not
- * @param {string} caption - one of the items in the nav bar. enumerated value the available icon names.
- * @param {boolean} selected - whether the item is selected or not. renders darker purple for selected, lighter purple for not selected
+ * @param {string} caption - one of the items in the nav bar. enumerated value of the available icon names.
+ * @param {boolean | number} selected - whether the item is selected or not. specifies the color. selected={true} gets primary500 (darkest purple), selected={400} gets primary400 (less dark purple), and selected={false} gets primary200 (pastel purple). Note that this is an overloaded parameter; some icons have only one color (e.g. ChevronRightSvg) and for these, the selected prop has no effect.
  * @returns jsx markup for specified icon, in the specified color.
  */
 export const SvgIcon = ({ iconName, selected }) => {
@@ -206,9 +265,15 @@ export const SvgIcon = ({ iconName, selected }) => {
       ) : iconName === "Edit" ? (
         <EditSvg selected={selected} />
       ) : iconName === "Chevron Right" ? (
-        <ChevronRight />
+        <ChevronRightSvg />
       ) : iconName === "Plus Sign" ? (
-        <PlusSign />
+        <PlusSignSvg />
+      ) : iconName === "Email" ? (
+        <EmailSvg />
+      ) : iconName === "Telephone" ? (
+        <TelephoneSvg />
+      ) : iconName === "Location" ? (
+        <LocationSvg />
       ) : null}
     </>
   );

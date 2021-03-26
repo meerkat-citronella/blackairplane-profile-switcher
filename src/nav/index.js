@@ -4,6 +4,8 @@ import { AmplifyLogo } from "./../icons/svg";
 import { NavItem } from "./functions";
 import "gotham-fonts/css/gotham-rounded.css";
 
+// TO DO: make nav bar 100% width...
+
 const NavBarContainer = styled.div`
   height: 56px;
   width: 1440px;
