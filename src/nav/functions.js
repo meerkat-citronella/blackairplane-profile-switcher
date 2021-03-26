@@ -1,21 +1,27 @@
 import React from "react";
-import { PURPLE_DESELECTED, PURPLE_SELECTED } from "./../constants";
-import { SvgIcon } from "./../icons/svg";
+import { BRAND_COLORS } from "./../constants";
+import { SvgIcon } from "../icons/svg";
 import styled from "styled-components";
 
 const Container = styled.div`
   margin-left: 40px;
 `;
 
-const Flexbox = styled.div`
-  height: ${(props) => (props.height ? props.height : "auto")};
+const NavOuterFlexbox = styled.div`
+  height: 40px;
   display: flex;
-  flex-direction: ${(props) => props.flexDirection};
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const NavInnerFlexbox = styled.div`
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
 `;
 
 const SelectedTabElevation = styled.div`
-  background: #7566a0;
+  background: ${BRAND_COLORS.primary500};
   height: 4px;
   width: 100%;
 `;
@@ -27,19 +33,20 @@ const NavBarCaption = styled.span`
   font-size: 14px;
   line-height: 24px;
   margin-left: 6px;
-  color: ${(props) => (props.selected ? PURPLE_SELECTED : PURPLE_DESELECTED)};
+  color: ${(props) =>
+    props.selected ? BRAND_COLORS.primary500 : BRAND_COLORS.primary200};
 `;
 
 export const NavItem = ({ caption, selected }) => {
   return (
     <Container>
-      <Flexbox flexDirection={"column"} height={"40px"}>
-        <Flexbox flexDirection={"row"}>
-          <SvgIcon caption={caption} selected={selected} />
+      <NavOuterFlexbox>
+        <NavInnerFlexbox>
+          <SvgIcon iconName={caption} selected={selected} />
           <NavBarCaption selected={selected}>{caption}</NavBarCaption>
-        </Flexbox>
+        </NavInnerFlexbox>
         {selected && <SelectedTabElevation />}
-      </Flexbox>
+      </NavOuterFlexbox>
     </Container>
   );
 };
