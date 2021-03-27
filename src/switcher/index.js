@@ -4,7 +4,8 @@ import "gotham-fonts/css/gotham-rounded.css";
 
 import { Tab, Owner, AddButton } from "./functions";
 import { FONT_COLORS } from "./../constants";
-import { Headline6, Caption } from "./../fonts";
+import { Headline6, Caption } from "./../static/fonts";
+import { FlexRow } from "./../static/flexbox";
 
 const Container = styled.div`
   width: 360px;
@@ -27,8 +28,7 @@ const CompanyCaption = styled(Caption)`
   color: ${FONT_COLORS.mediumEmphasis};
 `;
 
-const Flexbox = styled.div`
-  display: flex;
+const Flexbox = styled(FlexRow)`
   justify-content: center;
   margin-bottom: 9px;
 `;

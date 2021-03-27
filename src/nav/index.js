@@ -3,14 +3,13 @@ import styled from "styled-components";
 import { AmplifyLogo } from "./../icons/svg";
 import { NavItem } from "./functions";
 import "gotham-fonts/css/gotham-rounded.css";
+import { FlexRow } from "../static/flexbox";
 
 // TO DO: make nav bar 100% width...
 
-const NavBarContainer = styled.div`
+const NavBarContainer = styled(FlexRow)`
   height: 56px;
   width: 1440px;
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: flex-end;
   background: #ffffff;

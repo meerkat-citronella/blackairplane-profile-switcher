@@ -7,7 +7,8 @@ import {
   Body2MediumEmphasis,
   Subtitle1HighEmphasis,
   ButtonText,
-} from "./../fonts";
+} from "./../static/fonts";
+import { FlexRow } from "../static/flexbox";
 
 // tab
 const TabCaption = styled(Body2MediumEmphasis)`
@@ -42,23 +43,20 @@ const OwnerImg = styled.img`
   height: 40px;
 `;
 
-const OwnerOuterFlexbox = styled.div`
-  display: flex;
+const OwnerOuterFlexbox = styled(FlexRow)`
   height: 69px; // leave 1px for the divider
   justify-content: space-between;
   align-items: center;
   padding-right: 16px;
 `;
 
-const OwnerInnerFlexbox = styled.div`
-  display: flex;
+const OwnerInnerFlexbox = styled(FlexRow)`
   justify-content: flex-start;
   align-items: center;
 `;
 
-const DividerFlexbox = styled.div`
+const DividerFlexbox = styled(FlexRow)`
   // to center the divider in the card
-  display: flex;
   justify-content: center;
 `;
 
@@ -79,14 +77,12 @@ const Button = styled.button`
   color: ${FONT_COLORS.highEmphasisInverted};
 `;
 
-const ButtonOuterFlexbox = styled.div`
+const ButtonOuterFlexbox = styled(FlexRow)`
   // to center the button
-  display: flex;
   justify-content: center;
 `;
 
-const ButtonInnerFlexbox = styled.div`
-  display: flex;
+const ButtonInnerFlexbox = styled(FlexRow)`
   justify-content: center;
   align-items: center;
   column-gap: 12px;

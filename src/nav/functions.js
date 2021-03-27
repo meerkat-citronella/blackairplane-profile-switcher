@@ -1,23 +1,20 @@
 import React from "react";
 import { BRAND_COLORS } from "./../constants";
-import { Subtitle2 } from "./../fonts";
+import { Subtitle2 } from "./../static/fonts";
 import { SvgIcon } from "../icons/svg";
 import styled from "styled-components";
+import { FlexRow } from "../static/flexbox";
 
 const Container = styled.div`
   margin-left: 40px;
 `;
 
-const NavOuterFlexbox = styled.div`
+const NavOuterFlexbox = styled(FlexRow)`
   height: 40px;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
 `;
 
-const NavInnerFlexbox = styled.div`
-  display: flex;
-  flex-direction: row;
+const NavInnerFlexbox = styled(FlexRow)`
   justify-content: space-between;
 `;
 

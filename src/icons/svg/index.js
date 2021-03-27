@@ -231,6 +231,54 @@ const LocationSvg = () => (
   </span>
 );
 
+const CircleCheckSvg = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+  >
+    <circle cx="10" cy="10" r="10" fill="#00BFB2" />
+    <path
+      d="M8.12495 12.625L5.93745 10.4375C5.6937 10.1937 5.3062 10.1937 5.06245 10.4375C4.8187 10.6812 4.8187 11.0687 5.06245 11.3125L7.6812 13.9312C7.92495 14.175 8.3187 14.175 8.56245 13.9312L15.1875 7.3125C15.4312 7.06875 15.4312 6.68125 15.1875 6.4375C14.9437 6.19375 14.5562 6.19375 14.3125 6.4375L8.12495 12.625Z"
+      fill="white"
+    />
+  </svg>
+);
+
+const CircleCancelSvg = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="10" cy="10" r="10" fill="#FF4141" />
+    <path
+      d="M10 3.75C6.55 3.75 3.75 6.55 3.75 10C3.75 13.45 6.55 16.25 10 16.25C13.45 16.25 16.25 13.45 16.25 10C16.25 6.55 13.45 3.75 10 3.75ZM5 10C5 7.2375 7.2375 5 10 5C11.1562 5 12.2188 5.39375 13.0625 6.05625L6.05625 13.0625C5.39375 12.2188 5 11.1562 5 10ZM10 15C8.84375 15 7.78125 14.6062 6.9375 13.9437L13.9437 6.9375C14.6062 7.78125 15 8.84375 15 10C15 12.7625 12.7625 15 10 15Z"
+      fill="white"
+    />
+  </svg>
+);
+
+const TriangleWarningSvg = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="10" cy="10" r="10" fill="#FFB800" />
+    <path
+      d="M4.2059 15H15.7871C16.2684 15 16.5684 14.4813 16.3309 14.0625L10.5371 4.06251C10.2934 3.64376 9.6934 3.64376 9.4559 4.06251L3.66215 14.0625C3.42465 14.4813 3.72465 15 4.2059 15ZM10.6246 13.125H9.37465V11.875H10.6246V13.125ZM9.99965 10.625C9.6559 10.625 9.37465 10.3438 9.37465 10V8.75001C9.37465 8.40626 9.6559 8.12501 9.99965 8.12501C10.3434 8.12501 10.6246 8.40626 10.6246 8.75001V10C10.6246 10.3438 10.3434 10.625 9.99965 10.625Z"
+      fill="white"
+    />
+  </svg>
+);
+
 /**
  * gets the appropriate icon color, based on whether the icon is selected
  * @param {boolean | number} selected - specifies the color. a simple boolean (i.e. just passing 'selected' as a prop w no value) will return primary500, while specifiing selected={400} will return primary400. otherwise, will return pastel (primary200)
@@ -274,6 +322,12 @@ export const SvgIcon = ({ iconName, selected }) => {
         <TelephoneSvg />
       ) : iconName === "Location" ? (
         <LocationSvg />
+      ) : iconName === "Circle Check" ? (
+        <CircleCheckSvg />
+      ) : iconName === "Circle Cancel" ? (
+        <CircleCancelSvg />
+      ) : iconName === "Triangle Warning" ? (
+        <TriangleWarningSvg />
       ) : null}
     </>
   );
