@@ -4,6 +4,8 @@ This is my submission for the [Black Airplane Frontend Coding Challenge](https:/
 
 I used React, `styled-components`, and `gotham-fonts`.
 
+Note: the fonts are a bit off, I couldn't find a decent package for the font Gotham Rounded. `gotham-fonts` was the best I could find.
+
 ### Instructions
 
 ```sh
