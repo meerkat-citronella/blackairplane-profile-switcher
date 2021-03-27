@@ -10,5 +10,7 @@ Note: the fonts are a bit off, I couldn't find a decent package for the font Got
 
 ```sh
 git clone https://github.com/meerkat-citronella/blackairplane-profile-switcher
+cd blackairplane-profile-switcher
+yarn install
 yarn start
 ```
