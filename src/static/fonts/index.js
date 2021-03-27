@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FONT_COLORS, BRAND_COLORS } from "./../../constants";
+import { FONT_COLORS, BRAND_COLORS } from "../constants";
 import "gotham-fonts/css/gotham-rounded.css";
 
 export const Headline4 = styled.div`

@@ -1,9 +1,9 @@
 import "./App.css";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { NavBar } from "./nav";
-import { Switcher } from "./switcher";
-import { Profile } from "./profile";
-import "gotham-fonts/css/gotham-rounded.css";
+import { NavBar } from "./components/nav";
+import { Switcher } from "./components/switcher";
+import { Profile } from "./components/profile";
 import { FlexRow } from "./static/flexbox";
 
 const Flexbox = styled(FlexRow)`
@@ -12,12 +12,17 @@ const Flexbox = styled(FlexRow)`
 `;
 
 function App() {
+  const [selectedOwner, setSelectedOwner] = useState("Jana Bridges");
+
   return (
     <div>
       <NavBar />
       <Flexbox>
-        <Switcher />
-        <Profile />
+        <Switcher
+          selectedOwner={selectedOwner}
+          setSelectedOwner={setSelectedOwner}
+        />
+        <Profile selectedOwner={selectedOwner} />
       </Flexbox>
     </div>
   );

@@ -3,9 +3,9 @@ import styled from "styled-components";
 import "gotham-fonts/css/gotham-rounded.css";
 
 import { Tab, Owner, AddButton } from "./functions";
-import { FONT_COLORS } from "./../constants";
-import { Headline6, Caption } from "./../static/fonts";
-import { FlexRow } from "./../static/flexbox";
+import { FONT_COLORS } from "../../static/constants";
+import { Headline6, Caption } from "../../static/fonts";
+import { FlexRow } from "../../static/flexbox";
 
 const Container = styled.div`
   width: 360px;
@@ -33,7 +33,7 @@ const Flexbox = styled(FlexRow)`
   margin-bottom: 9px;
 `;
 
-export const Switcher = () => {
+export const Switcher = ({ selectedOwner, setSelectedOwner }) => {
   return (
     <Container>
       <CompanyName>Propworx Property Management</CompanyName>
@@ -44,9 +44,24 @@ export const Switcher = () => {
         <Tab>My Profile</Tab>
         <Tab selected>Owners</Tab>
       </Flexbox>
-      <Owner ownerName={"Jana Bridges"} propertiesOwned={3} selected></Owner>
-      <Owner ownerName={"Michael Anderson"} propertiesOwned={23}></Owner>
-      <Owner ownerName={"Sophia Ridenour"} propertiesOwned={41}></Owner>
+      <Owner
+        ownerName={"Jana Bridges"}
+        propertiesOwned={3}
+        setSelectedOwner={setSelectedOwner}
+        selectedOwner={selectedOwner}
+      ></Owner>
+      <Owner
+        ownerName={"Michael Anderson"}
+        propertiesOwned={23}
+        setSelectedOwner={setSelectedOwner}
+        selectedOwner={selectedOwner}
+      ></Owner>
+      <Owner
+        ownerName={"Sophia Ridenour"}
+        propertiesOwned={41}
+        setSelectedOwner={setSelectedOwner}
+        selectedOwner={selectedOwner}
+      ></Owner>
       <AddButton />
     </Container>
   );

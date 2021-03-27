@@ -1,5 +1,5 @@
 import React from "react";
-import { BRAND_COLORS } from "../../constants";
+import { BRAND_COLORS } from "../constants";
 
 export const AmplifyLogo = () => (
   <svg

@@ -1,15 +1,15 @@
 import React from "react";
-import { BRAND_COLORS } from "./../constants";
-import { Subtitle2 } from "./../static/fonts";
-import { SvgIcon } from "../icons/svg";
+import { BRAND_COLORS } from "../../static/constants";
+import { Subtitle2 } from "../../static/fonts";
+import { SvgIcon } from "../../static/icons";
 import styled from "styled-components";
-import { FlexRow } from "../static/flexbox";
+import { FlexColumn, FlexRow } from "../../static/flexbox";
 
 const Container = styled.div`
   margin-left: 40px;
 `;
 
-const NavOuterFlexbox = styled(FlexRow)`
+const NavOuterFlexbox = styled(FlexColumn)`
   height: 40px;
   justify-content: space-between;
 `;
@@ -18,8 +18,14 @@ const NavInnerFlexbox = styled(FlexRow)`
   justify-content: space-between;
 `;
 
+// to account for the two different shades of dark purple used in the figma
 const SelectedTabElevation = styled.div`
-  background: ${BRAND_COLORS.primary500};
+  background: ${(props) =>
+    props.selected
+      ? props.selected === 400
+        ? BRAND_COLORS.primary400
+        : BRAND_COLORS.primary500
+      : null};
   height: 4px;
   width: 100%;
 `;
@@ -27,7 +33,11 @@ const SelectedTabElevation = styled.div`
 const NavBarCaption = styled(Subtitle2)`
   margin-left: 6px;
   color: ${(props) =>
-    props.selected ? BRAND_COLORS.primary500 : BRAND_COLORS.primary200};
+    props.selected
+      ? props.selected === 400
+        ? BRAND_COLORS.primary400
+        : BRAND_COLORS.primary500
+      : BRAND_COLORS.primary200};
 `;
 
 export const NavItem = ({ caption, selected }) => {
@@ -38,7 +48,7 @@ export const NavItem = ({ caption, selected }) => {
           <SvgIcon iconName={caption} selected={selected} />
           <NavBarCaption selected={selected}>{caption}</NavBarCaption>
         </NavInnerFlexbox>
-        {selected && <SelectedTabElevation />}
+        {selected && <SelectedTabElevation selected={selected} />}
       </NavOuterFlexbox>
     </Container>
   );

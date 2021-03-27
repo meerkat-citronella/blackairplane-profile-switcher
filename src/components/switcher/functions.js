@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import { ownerPhotos } from "./../assets/png";
-import { SvgIcon } from "./../icons/svg";
-import { BRAND_COLORS, FONT_COLORS, DETAIL_COLORS } from "./../constants";
+import { ownerPhotos } from "../../assets/png";
+import { SvgIcon } from "../../static/icons";
+import {
+  BRAND_COLORS,
+  FONT_COLORS,
+  DETAIL_COLORS,
+} from "../../static/constants";
 import {
   Body2MediumEmphasis,
   Subtitle1HighEmphasis,
   ButtonText,
-} from "./../static/fonts";
-import { FlexRow } from "../static/flexbox";
+} from "../../static/fonts";
+import { FlexRow } from "../../static/flexbox";
 
 // tab
 const TabCaption = styled(Body2MediumEmphasis)`
@@ -97,9 +101,17 @@ export const Tab = ({ children, selected }) => {
   );
 };
 
-export const Owner = ({ ownerName, propertiesOwned, selected }) => {
+export const Owner = ({
+  ownerName,
+  propertiesOwned,
+  setSelectedOwner,
+  selectedOwner,
+}) => {
+  const selected = selectedOwner === ownerName;
+  const handleClick = () => setSelectedOwner(ownerName);
+
   return (
-    <OwnerCard selected={selected}>
+    <OwnerCard selected={selected} onClick={handleClick}>
       <OwnerOuterFlexbox>
         <OwnerInnerFlexbox>
           <OwnerImg

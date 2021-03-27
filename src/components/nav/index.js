@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { AmplifyLogo } from "./../icons/svg";
+import { AmplifyLogo } from "../../static/icons";
 import { NavItem } from "./functions";
 import "gotham-fonts/css/gotham-rounded.css";
-import { FlexRow } from "../static/flexbox";
+import { FlexRow } from "../../static/flexbox";
 
 // TO DO: make nav bar 100% width...
 
 const NavBarContainer = styled(FlexRow)`
   height: 56px;
-  width: 1440px;
+  width: 100%;
   justify-content: center;
   align-items: flex-end;
   background: #ffffff;
@@ -31,7 +31,7 @@ export const NavBar = () => {
           <AmplifyLogo />
         </AmplifyLogoContainer>
 
-        <NavItem caption={"Properties"} selected />
+        <NavItem caption={"Properties"} selected={400} />
 
         <NavItem caption={"My Company"} selected />
 

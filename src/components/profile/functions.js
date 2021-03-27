@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { BRAND_COLORS, DETAIL_COLORS } from "../constants";
-import { SvgIcon } from "../icons/svg";
-import { FlexColumn, FlexRow } from "../static/flexbox";
-import { ownerPhotos } from "./../assets/png";
-import home from "./../assets/png/home.png";
+import { BRAND_COLORS, DETAIL_COLORS } from "../../static/constants";
+import { SvgIcon } from "../../static/icons";
+import { FlexColumn, FlexRow } from "../../static/flexbox";
+import { ownerPhotos } from "./../../assets/png";
+import home from "./../../assets/png/home.png";
 import {
   Headline4,
   Subtitle1MediumEmphasis,
@@ -12,7 +12,7 @@ import {
   ButtonText,
   Body2HighEmphasis,
   Caption,
-} from "./../static/fonts";
+} from "../../static/fonts";
 
 // owner name and photo
 const OwnerOuterFlexbox = styled(FlexColumn)`

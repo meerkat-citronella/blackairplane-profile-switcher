@@ -12,10 +12,10 @@ const Container = styled.div`
   margin-top: 48px;
 `;
 
-export const Profile = () => {
+export const Profile = ({ selectedOwner }) => {
   return (
     <Container>
-      <OwnerNameAndPhoto ownerName="Jana Bridges" />
+      <OwnerNameAndPhoto ownerName={selectedOwner} />
       <ContactInfo
         email={"jbridges@example.com"}
         phoneNumber={"(555) 555-5555"}
